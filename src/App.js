@@ -16,9 +16,20 @@ class App extends React.Component {
 
       todoList: [
 
-        'hi',
-        'ok',
-        'maybe'
+        {
+          msg: 'hi',
+          completed: false
+        },
+
+        {
+          msg: 'ok',
+          completed: false
+        },
+
+        {
+          msg: 'hello',
+          completed: false
+        }
 
       ],
 
@@ -51,8 +62,10 @@ class App extends React.Component {
       todoList: [
 
         ...this.state.todoList,
-        this.state.formInput
-
+        {
+          msg: this.state.formInput,
+          completed: false
+        }
       ]
 
     });

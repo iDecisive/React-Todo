@@ -7,13 +7,13 @@ class Todo extends React.Component {
 
     }
 
-    render() {
+    render(addStrikeThrough) {
 
         let {listItem} = this.props;
 
         return (
 
-            <li>{listItem}</li>
+            <li id={listItem.id} style={listItem.completed ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}}>{listItem.msg}</li>
 
         )
 
