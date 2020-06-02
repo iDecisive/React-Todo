@@ -40,7 +40,7 @@ class App extends React.Component {
 
   //Functions
 
-  setInputForm = event => {
+  setInputForm = event => { //Called onChange on the input
 
     this.setState({
 
@@ -53,20 +53,37 @@ class App extends React.Component {
 
   }
 
-  setTodoList = event => {
+  setTodoList = event => { //Called onClick on the add button
 
     event.preventDefault();
+
+
+  }
+
+  itemClicked = event => { //When you click a list item it changed the 'completed' object property in state
+
+    let newTodoList = [
+
+      ...this.state.todoList,
+
+    ]
+
+    newTodoList[event.target.id] = {
+
+      ...newTodoList[event.target.id],
+      completed: !newTodoList[event.target.id].completed
+
+    }
 
     this.setState({
 
       todoList: [
 
-        ...this.state.todoList,
-        {
-          msg: this.state.formInput,
-          completed: false
-        }
-      ]
+        ...newTodoList
+
+      ],
+
+      ...this.state.formInput
 
     });
 
@@ -79,7 +96,7 @@ class App extends React.Component {
 
         <TodoForm formInput={this.state.formInput} setInputForm={this.setInputForm} setTodoList={this.setTodoList}/>
 
-        <TodoList todoList={this.state.todoList}/>
+        <TodoList todoList={this.state.todoList} itemClicked={this.itemClicked}/>
 
       </div>
     );

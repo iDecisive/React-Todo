@@ -9,11 +9,18 @@ class Todo extends React.Component {
 
     render(addStrikeThrough) {
 
-        let {listItem} = this.props;
+        let {listItem, itemClicked, itemID} = this.props;
 
         return (
 
-            <li id={listItem.id} style={listItem.completed ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}}>{listItem.msg}</li>
+            <li 
+            id={itemID}
+            style={listItem.completed ? {'text-decoration': 'line-through'} : {'text-decoration': 'none'}}
+            onClick={event => itemClicked(event)}>
+            
+                {listItem.msg}
+            
+            </li>
 
         )
 

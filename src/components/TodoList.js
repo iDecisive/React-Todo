@@ -14,7 +14,7 @@
 
     render() {
 
-        let {todoList} = this.props;
+        let {todoList, itemClicked} = this.props;
 
         return (
 
@@ -22,7 +22,7 @@
 
                 {
                 
-                todoList.map(item => <Todo listItem={item}/>)
+                todoList.map((item, index) => <Todo itemID={index} listItem={item} itemClicked={itemClicked}/>)
                 
                 }
 
