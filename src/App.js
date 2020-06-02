@@ -57,6 +57,27 @@ class App extends React.Component {
 
     event.preventDefault();
 
+    let newTodoList = [
+
+      ...this.state.todoList,
+      {
+        msg: this.state.formInput,
+        completed: false
+      }
+
+    ]
+
+    this.setState({
+
+      todoList: [
+
+        ...newTodoList
+
+      ],
+
+      ...this.state.formInput
+
+    });
 
   }
 
