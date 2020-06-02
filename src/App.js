@@ -27,6 +27,8 @@ class App extends React.Component {
     }
   }
 
+  //Functions
+
   setInputForm = event => {
 
     this.setState({
@@ -40,12 +42,29 @@ class App extends React.Component {
 
   }
 
+  setTodoList = event => {
+
+    event.preventDefault();
+
+    this.setState({
+
+      todoList: [
+
+        ...this.state.todoList,
+        this.state.formInput
+
+      ]
+
+    });
+
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        <TodoForm formInput={this.state.formInput} setInputForm={this.setInputForm}/>
+        <TodoForm formInput={this.state.formInput} setInputForm={this.setInputForm} setTodoList={this.setTodoList}/>
 
         <TodoList todoList={this.state.todoList}/>
 

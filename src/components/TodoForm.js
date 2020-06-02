@@ -37,11 +37,11 @@ import React from 'react';
 let TodoForm = props => {
 
 
-        let {formInput, setInputForm} = props;
+        let {formInput, setInputForm, setTodoList} = props;
 
         return (
 
-            <form>
+            <form onSubmit={event => setTodoList(event)}>
 
                 <label>
                     <input 
