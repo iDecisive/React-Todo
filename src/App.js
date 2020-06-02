@@ -64,7 +64,7 @@ class App extends React.Component {
 
     let newTodoList = [
 
-      ...this.state.todoList,
+      ...this.state.todoList
 
     ]
 
@@ -89,12 +89,38 @@ class App extends React.Component {
 
   }
 
+  clearCompleted = event => {
+
+    let newTodoList = [
+
+      ...this.state.todoList.filter(item => item.completed === false)
+
+    ]
+
+    this.setState({
+
+      todoList: [
+
+        ...newTodoList
+
+      ],
+
+      ...this.state.formInput
+
+    });
+
+  }
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        <TodoForm formInput={this.state.formInput} setInputForm={this.setInputForm} setTodoList={this.setTodoList}/>
+        <TodoForm 
+        formInput={this.state.formInput} 
+        setInputForm={this.setInputForm} 
+        setTodoList={this.setTodoList}
+        clearCompleted={this.clearCompleted}/>
 
         <TodoList todoList={this.state.todoList} itemClicked={this.itemClicked}/>
 

@@ -37,24 +37,27 @@ import React from 'react';
 let TodoForm = props => {
 
 
-        let {formInput, setInputForm, setTodoList} = props;
+        let {formInput, setInputForm, setTodoList, clearCompleted} = props;
 
         return (
 
-            <form onSubmit={event => setTodoList(event)}>
+            <div>
+                <form onSubmit={event => setTodoList(event)}>
 
-                <label>
-                    <input 
-                    type='text'
-                    onChange={event => setInputForm(event)}
-                    value={formInput}/>
-                </label>
+                    <label>
+                        <input 
+                        type='text'
+                        onChange={event => setInputForm(event)}
+                        value={formInput}/>
+                    </label>
 
-                <button>Add to list</button>
+                    <button>Add to list</button>
 
-                <h1>Temp: {formInput}</h1>
+                </form>
 
-            </form>
+                <button onClick={event => clearCompleted(event)}>Clear Completed</button>
+
+            </div>
 
             )
 
