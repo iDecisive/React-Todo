@@ -22,9 +22,22 @@ class App extends React.Component {
 
       ],
 
-      formInput: 'hkjh'
+      formInput: ''
 
     }
+  }
+
+  setInputForm = event => {
+
+    this.setState({
+
+      ...this.state,
+      formInput: event.target.value
+
+    });   
+    
+    console.log(this.state.formInput)
+
   }
 
   render() {
@@ -32,7 +45,7 @@ class App extends React.Component {
       <div>
         <h2>Welcome to your Todo App!</h2>
 
-        <TodoForm formInput={this.state.formInput}/>
+        <TodoForm formInput={this.state.formInput} setInputForm={this.setInputForm}/>
 
         <TodoList todoList={this.state.todoList}/>
 
